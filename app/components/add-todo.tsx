@@ -21,6 +21,7 @@ const AddTodo = () => {
 
     if (res.ok) {
       alert("Record Added!");
+      setTitleState("")
       navigate.replace("/");
       navigate.refresh()
     } else {
@@ -29,7 +30,7 @@ const AddTodo = () => {
   };
 
   return (
-    <div className="w-[400px] border-2 border-gray-300 p-3 rounded-md mt-3">
+    <div className="w-full border-2 border-gray-300 p-3 rounded-md mt-3">
       <form className="flex gap-1" onSubmit={handleSubmit}>
         <input
           className="w-4/5 border border-gray-300 p-2 rounded-md"
