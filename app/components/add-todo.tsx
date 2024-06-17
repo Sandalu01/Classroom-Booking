@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
 
 const AddTodo = () => {
+  const navigate = useRouter();
   const [titleState, setTitleState] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -12,14 +14,15 @@ const AddTodo = () => {
     const title = formData.get("title") as string;
     if (!title) return;
 
-    const res = await fetch("/api/todo/add", {
+    const res = await fetch("/api/todo", {
       method: "POST",
       body: JSON.stringify({ title: title }),
     });
 
     if (res.ok) {
       alert("Record Added!");
-      setTitleState("")
+      navigate.replace("/");
+      navigate.refresh()
     } else {
       alert("Faild");
     }
