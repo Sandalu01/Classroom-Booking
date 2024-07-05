@@ -61,7 +61,7 @@ export default function Register() {
           <p className="text-sm mt-4">
             Already have an account?{' '}
             <Link href="/login">
-              <a className="text-blue-500 hover:text-blue-700">Login</a>
+              <p className="text-blue-500 hover:text-blue-700">Login</p>
             </Link>
           </p>
         </div>
